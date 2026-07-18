@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { User, Tag, Clock, Users, ChevronRight, Camera, LogOut } from 'lucide-react'
+import { useAuth } from '@/hooks/useAuth'
 import CategoryManager from '@/components/settings/CategoryManager'
 import ScheduledManager from '@/components/settings/ScheduledManager'
 import FamilyManager from '@/components/settings/FamilyManager'
@@ -32,11 +34,18 @@ const DEMO_SCHEDULED: ScheduledTransaction[] = [
 type SettingsSection = 'menu' | 'categories' | 'scheduled' | 'family'
 
 export default function Settings() {
+  const navigate = useNavigate()
+  const { user, signOut } = useAuth()
   const [section, setSection] = useState<SettingsSection>('menu')
   const [categories, setCategories] = useState<Category[]>(DEMO_CATEGORIES)
   const [scheduled, setScheduled] = useState<ScheduledTransaction[]>(DEMO_SCHEDULED)
   const [family, setFamily] = useState<FamilyGroup | null>(null)
   const [members, setMembers] = useState<FamilyMember[]>([])
+
+  const handleLogout = async () => {
+    await signOut()
+    navigate('/auth', { replace: true })
+  }
 
   // Category handlers
   const handleSaveCategory = (cat: { name: string; icon: string; color: string; type: CategoryFilter }, id?: string) => {
@@ -149,8 +158,10 @@ export default function Settings() {
                 </button>
               </div>
               <div className="flex-1">
-                <p className="text-sm font-semibold text-text-primary">Utente</p>
-                <p className="text-xs text-text-secondary">user@email.com</p>
+                <p className="text-sm font-semibold text-text-primary">
+                  {user?.user_metadata?.full_name || 'Utente'}
+                </p>
+                <p className="text-xs text-text-secondary">{user?.email || ''}</p>
               </div>
               <ChevronRight size={16} className="text-text-secondary" />
             </div>
@@ -170,7 +181,10 @@ export default function Settings() {
 
             {/* Logout */}
             <div className="pt-6">
-              <button className="w-full flex items-center justify-center gap-2 py-3 text-sm font-medium text-expense hover:bg-expense/5 rounded-xl transition-colors">
+              <button
+                onClick={handleLogout}
+                className="w-full flex items-center justify-center gap-2 py-3 text-sm font-medium text-expense hover:bg-expense/5 rounded-xl transition-colors"
+              >
                 <LogOut size={16} /> Esci
               </button>
               <p className="text-[10px] text-text-tertiary text-center mt-4">
