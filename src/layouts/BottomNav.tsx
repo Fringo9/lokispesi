@@ -1,12 +1,10 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-import { useUIStore } from '@/stores/uiStore'
 import {
   BookOpen,
   Wallet,
   Landmark,
   PieChart,
   Settings,
-  Plus,
 } from 'lucide-react'
 
 const tabs = [
@@ -20,7 +18,6 @@ const tabs = [
 export default function BottomNav() {
   const location = useLocation()
   const navigate = useNavigate()
-  const { openModal } = useUIStore()
 
   const isActive = (path: string) => location.pathname.startsWith(path)
 
@@ -29,7 +26,7 @@ export default function BottomNav() {
       className="fixed bottom-0 left-0 right-0 z-50 bg-surface/95 backdrop-blur-xl border-t border-border"
       style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
     >
-      <div className="flex items-center justify-around h-16 max-w-lg mx-auto relative">
+      <div className="flex items-center justify-around h-16 max-w-lg mx-auto">
         {tabs.map((tab) => {
           const active = isActive(tab.path)
           return (
@@ -47,17 +44,6 @@ export default function BottomNav() {
             </button>
           )
         })}
-
-        {/* FAB */}
-        <button
-          onClick={() => openModal('addExpense')}
-          className="absolute -top-[20px] right-4 w-14 h-14 rounded-full bg-accent hover:bg-accent
-                     text-white shadow-lg shadow-accent/30 flex items-center justify-center
-                     transition-transform active:scale-95"
-          aria-label="Aggiungi spesa"
-        >
-          <Plus size={26} strokeWidth={2.5} />
-        </button>
       </div>
     </nav>
   )
