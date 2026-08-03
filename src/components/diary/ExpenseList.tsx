@@ -67,7 +67,7 @@ export default function ExpenseList({ transactions }: Props) {
               {txs
                 .sort((a, b) => b.amount - a.amount)
                 .map(tx => (
-                  <ExpenseItem key={tx.id} transaction={tx} />
+                  <ExpenseItem key={tx.id} transaction={tx} onDelete={onDelete} />
                 ))}
             </div>
           </div>
