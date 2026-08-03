@@ -28,7 +28,7 @@ export default function BankCard({ account, onSync, onRemove }: Props) {
       case 'error':
         return <AlertCircle size={14} className="text-expense" />
       case 'expired':
-        return <Clock size={14} className="text-yellow-400" />
+        return <Clock size={14} className="text-amber-600" />
     }
   }
 
@@ -88,7 +88,7 @@ export default function BankCard({ account, onSync, onRemove }: Props) {
             className={`px-3 py-2.5 text-xs font-medium border-r border-border transition-colors ${
               syncing
                 ? 'text-text-secondary cursor-wait'
-                : 'text-accent hover:text-blue-400 hover:bg-accent/5'
+                : 'text-accent hover:text-accent-bright hover:bg-accent/5'
             }`}
           >
             <span className="flex items-center gap-1.5">

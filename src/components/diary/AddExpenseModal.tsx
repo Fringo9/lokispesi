@@ -57,7 +57,7 @@ export default function AddExpenseModal({ onClose, onSave, initialData, categori
 
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center">
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={onClose} />
 
       <div className="relative w-full max-w-lg bg-surface rounded-t-3xl border border-border border-b-0
                       animate-slide-up max-h-[90dvh] overflow-y-auto">
@@ -147,7 +147,7 @@ export default function AddExpenseModal({ onClose, onSave, initialData, categori
           <div>
             <label className="text-xs font-semibold text-text-secondary uppercase tracking-wide mb-2 block">Data</label>
             <input type="date" value={date} onChange={e => setDate(e.target.value)}
-              className="w-full bg-primary/50 rounded-xl px-4 py-3 border border-border text-sm text-text-primary outline-none focus:border-accent/30 [color-scheme:dark]" />
+              className="w-full bg-primary/50 rounded-xl px-4 py-3 border border-border text-sm text-text-primary outline-none focus:border-accent/30 [color-scheme:light]" />
           </div>
 
           {/* Note */}
@@ -156,12 +156,12 @@ export default function AddExpenseModal({ onClose, onSave, initialData, categori
               Nota <span className="text-text-secondary font-normal normal-case">(opzionale)</span>
             </label>
             <textarea value={note} onChange={e => setNote(e.target.value)} placeholder="Aggiungi una nota..." rows={2}
-              className="w-full bg-primary/50 rounded-xl px-4 py-3 border border-border text-sm text-text-primary placeholder:text-text-secondary outline-none focus:border-accent/30 resize-none [color-scheme:dark]" />
+              className="w-full bg-primary/50 rounded-xl px-4 py-3 border border-border text-sm text-text-primary placeholder:text-text-secondary outline-none focus:border-accent/30 resize-none [color-scheme:light]" />
           </div>
 
           <button onClick={handleSave} disabled={!isValid}
             className={`w-full py-3.5 rounded-xl text-sm font-semibold transition-all ${
-              isValid ? 'bg-accent text-white hover:bg-blue-600 active:scale-[0.98] shadow-lg shadow-accent/25' : 'bg-border text-text-secondary cursor-not-allowed'
+              isValid ? 'bg-accent text-white hover:bg-accent active:scale-[0.98] shadow-lg shadow-accent/25' : 'bg-border text-text-secondary cursor-not-allowed'
             }`}
           >
             {type === 'income' ? 'Aggiungi entrata' : 'Aggiungi spesa'}

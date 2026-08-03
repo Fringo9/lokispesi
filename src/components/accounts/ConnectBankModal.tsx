@@ -59,7 +59,7 @@ export default function ConnectBankModal({ onClose, onSelect }: Props) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center">
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={onClose} />
       <div className="relative w-full max-w-lg bg-surface rounded-t-3xl border border-border border-b-0 max-h-[85dvh] overflow-y-auto animate-slide-up">
         {/* Handle */}
         <div className="flex items-center justify-center pt-3 pb-1">
@@ -128,7 +128,7 @@ export default function ConnectBankModal({ onClose, onSelect }: Props) {
               className={`w-full py-3.5 rounded-xl text-sm font-semibold transition-all ${
                 isConnecting
                   ? 'bg-border text-text-secondary cursor-wait'
-                  : 'bg-accent text-white hover:bg-blue-600 active:scale-[0.98] shadow-lg shadow-accent/25'
+                  : 'bg-accent text-white hover:bg-accent active:scale-[0.98] shadow-lg shadow-accent/25'
               }`}
             >
               {isConnecting ? (

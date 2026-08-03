@@ -9,13 +9,13 @@ import type { Category, CategoryFilter, ScheduledTransaction, FamilyGroup, Famil
 
 // Demo data
 const DEMO_CATEGORIES: Category[] = [
-  { id: 'c1', user_id: 'demo', name: 'Stipendio', icon: 'briefcase', color: '#22C55E', type: 'income', is_default: true, created_at: '' },
-  { id: 'c2', user_id: 'demo', name: 'Affitto/Mutuo', icon: 'home', color: '#EF4444', type: 'expense', is_default: true, created_at: '' },
-  { id: 'c3', user_id: 'demo', name: 'Spesa alimentare', icon: 'shopping-cart', color: '#EAB308', type: 'expense', is_default: true, created_at: '' },
-  { id: 'c4', user_id: 'demo', name: 'Bollette', icon: 'zap', color: '#F97316', type: 'expense', is_default: true, created_at: '' },
-  { id: 'c5', user_id: 'demo', name: 'Ristoranti', icon: 'utensils-crossed', color: '#EC4899', type: 'expense', is_default: true, created_at: '' },
-  { id: 'c6', user_id: 'demo', name: 'Trasporti', icon: 'car', color: '#3B82F6', type: 'expense', is_default: true, created_at: '' },
-  { id: 'c7', user_id: 'demo', name: 'Intrattenimento', icon: 'tv', color: '#8B5CF6', type: 'expense', is_default: true, created_at: '' },
+  { id: 'c1', user_id: 'demo', name: 'Stipendio', icon: 'briefcase', color: '#5BA88A', type: 'income', is_default: true, created_at: '' },
+  { id: 'c2', user_id: 'demo', name: 'Affitto/Mutuo', icon: 'home', color: '#D4897A', type: 'expense', is_default: true, created_at: '' },
+  { id: 'c3', user_id: 'demo', name: 'Spesa alimentare', icon: 'shopping-cart', color: '#8BA888', type: 'expense', is_default: true, created_at: '' },
+  { id: 'c4', user_id: 'demo', name: 'Bollette', icon: 'zap', color: '#D4A06A', type: 'expense', is_default: true, created_at: '' },
+  { id: 'c5', user_id: 'demo', name: 'Ristoranti', icon: 'utensils-crossed', color: '#C888A0', type: 'expense', is_default: true, created_at: '' },
+  { id: 'c6', user_id: 'demo', name: 'Trasporti', icon: 'car', color: '#7BA0C8', type: 'expense', is_default: true, created_at: '' },
+  { id: 'c7', user_id: 'demo', name: 'Intrattenimento', icon: 'tv', color: '#9B8AC8', type: 'expense', is_default: true, created_at: '' },
 ]
 
 const DEMO_SCHEDULED: ScheduledTransaction[] = [

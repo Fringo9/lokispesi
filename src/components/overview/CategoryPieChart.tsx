@@ -30,8 +30,8 @@ export default function CategoryPieChart({ data }: Props) {
           </Pie>
           <Tooltip
             contentStyle={{
-              backgroundColor: '#1E293B',
-              border: '1px solid #334155',
+              backgroundColor: '#FFFFFF',
+              border: '1px solid #E5E7EB',
               borderRadius: '12px',
               fontSize: '13px',
             }}

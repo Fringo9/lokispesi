@@ -8,21 +8,21 @@ const CATEGORIES_KEY = 'categories'
 
 const DEFAULT_CATEGORIES = {
   income: [
-    { name: 'Stipendio', icon: 'briefcase', color: '#22C55E', type: 'income' as const },
-    { name: 'Freelance', icon: 'laptop', color: '#16A34A', type: 'income' as const },
-    { name: 'Altro (entrate)', icon: 'ellipsis', color: '#6B7280', type: 'income' as const },
+    { name: 'Stipendio', icon: 'briefcase', color: '#5BA88A', type: 'income' as const },
+    { name: 'Freelance', icon: 'laptop', color: '#4A9B7E', type: 'income' as const },
+    { name: 'Altro (entrate)', icon: 'ellipsis', color: '#8B8B8B', type: 'income' as const },
   ],
   expense: [
-    { name: 'Affitto/Mutuo', icon: 'home', color: '#EF4444', type: 'expense' as const },
-    { name: 'Bollette', icon: 'zap', color: '#F97316', type: 'expense' as const },
-    { name: 'Spesa alimentare', icon: 'shopping-cart', color: '#EAB308', type: 'expense' as const },
-    { name: 'Trasporti', icon: 'car', color: '#3B82F6', type: 'expense' as const },
-    { name: 'Ristoranti', icon: 'utensils-crossed', color: '#EC4899', type: 'expense' as const },
-    { name: 'Salute', icon: 'heart-pulse', color: '#14B8A6', type: 'expense' as const },
-    { name: 'Intrattenimento', icon: 'tv', color: '#8B5CF6', type: 'expense' as const },
-    { name: 'Abbigliamento', icon: 'shirt', color: '#F43F5E', type: 'expense' as const },
-    { name: 'Investimenti', icon: 'trending-up', color: '#06B6D4', type: 'both' as const },
-    { name: 'Altro', icon: 'ellipsis', color: '#6B7280', type: 'both' as const },
+    { name: 'Affitto/Mutuo', icon: 'home', color: '#D4897A', type: 'expense' as const },
+    { name: 'Bollette', icon: 'zap', color: '#D4A06A', type: 'expense' as const },
+    { name: 'Spesa alimentare', icon: 'shopping-cart', color: '#8BA888', type: 'expense' as const },
+    { name: 'Trasporti', icon: 'car', color: '#7BA0C8', type: 'expense' as const },
+    { name: 'Ristoranti', icon: 'utensils-crossed', color: '#C888A0', type: 'expense' as const },
+    { name: 'Salute', icon: 'heart-pulse', color: '#6BA8B8', type: 'expense' as const },
+    { name: 'Intrattenimento', icon: 'tv', color: '#9B8AC8', type: 'expense' as const },
+    { name: 'Abbigliamento', icon: 'shirt', color: '#C87888', type: 'expense' as const },
+    { name: 'Investimenti', icon: 'trending-up', color: '#8BA8A0', type: 'both' as const },
+    { name: 'Altro', icon: 'ellipsis', color: '#8B8B8B', type: 'both' as const },
   ],
 }
 

@@ -94,7 +94,7 @@ export default function ScheduledManager({ scheduled, onSave, onToggle, onDelete
     <div className="space-y-3">
       <div className="flex items-center justify-between">
         <h2 className="text-sm font-semibold text-text-secondary uppercase tracking-wide">Transazioni programmate</h2>
-        <button onClick={handleOpenNew} className="flex items-center gap-1 text-xs font-medium text-accent hover:text-blue-400">
+        <button onClick={handleOpenNew} className="flex items-center gap-1 text-xs font-medium text-accent hover:text-accent-bright">
           <Plus size={14} /> Nuova
         </button>
       </div>
@@ -165,7 +165,7 @@ export default function ScheduledManager({ scheduled, onSave, onToggle, onDelete
       {/* Form Modal */}
       {showForm && (
         <div className="fixed inset-0 z-50 flex items-end justify-center">
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowForm(false)} />
+          <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={() => setShowForm(false)} />
           <div className="relative w-full max-w-lg bg-surface rounded-t-3xl border border-border border-b-0 p-5 animate-slide-up max-h-[85dvh] overflow-y-auto">
             <div className="flex items-center justify-between mb-5">
               <h2 className="text-lg font-semibold text-text-primary">
@@ -222,7 +222,7 @@ export default function ScheduledManager({ scheduled, onSave, onToggle, onDelete
               <div>
                 <label className="text-xs font-semibold text-text-secondary uppercase tracking-wide mb-2 block">Data inizio</label>
                 <input type="date" value={startDate} onChange={e => setStartDate(e.target.value)}
-                  className="w-full bg-primary/50 rounded-xl px-4 py-3 border border-border text-sm text-text-primary outline-none focus:border-accent/30 [color-scheme:dark]" />
+                  className="w-full bg-primary/50 rounded-xl px-4 py-3 border border-border text-sm text-text-primary outline-none focus:border-accent/30 [color-scheme:light]" />
               </div>
 
               {/* Note */}
@@ -234,7 +234,7 @@ export default function ScheduledManager({ scheduled, onSave, onToggle, onDelete
 
               <button onClick={handleSubmit} disabled={!amount || !description.trim()}
                 className={`w-full py-3.5 rounded-xl text-sm font-semibold transition-all ${
-                  amount && description.trim() ? 'bg-accent text-white hover:bg-blue-600' : 'bg-border text-text-secondary cursor-not-allowed'
+                  amount && description.trim() ? 'bg-accent text-white hover:bg-accent' : 'bg-border text-text-secondary cursor-not-allowed'
                 }`}>
                 {editing ? 'Salva modifiche' : 'Crea transazione programmata'}
               </button>

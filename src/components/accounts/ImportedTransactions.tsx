@@ -55,7 +55,7 @@ export default function ImportedTransactions({ account }: Props) {
             <CheckCircle2 size={10} />
             {result.reconciled} riconciliate
           </span>
-          <span className="flex items-center gap-1 text-yellow-400">
+          <span className="flex items-center gap-1 text-amber-600">
             <Link size={10} />
             {result.suggested} suggerite
           </span>
@@ -94,7 +94,7 @@ export default function ImportedTransactions({ account }: Props) {
       {result.reconciled > 0 && (
         <button
           onClick={() => setShowAll(!showAll)}
-          className="w-full py-2.5 text-xs font-medium text-accent hover:text-blue-400 border-t border-border transition-colors"
+          className="w-full py-2.5 text-xs font-medium text-accent hover:text-accent-bright border-t border-border transition-colors"
         >
           {showAll
             ? 'Nascondi transazioni riconciliate'
@@ -122,7 +122,7 @@ function MatchCard({
         )
       case 'medium':
         return (
-          <span className="flex items-center gap-1 text-[10px] text-yellow-400 bg-yellow-400/10 px-1.5 py-0.5 rounded-full">
+          <span className="flex items-center gap-1 text-[10px] text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded-full">
             <Link size={9} /> Suggerita
           </span>
         )

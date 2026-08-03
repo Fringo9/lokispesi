@@ -45,7 +45,7 @@ export default function Wallet() {
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-sm font-semibold text-text-secondary uppercase tracking-wide">Portafogli manuali</h2>
             <button onClick={() => { setEditingWallet(null); setShowEditor(true) }}
-              className="flex items-center gap-1 text-xs font-medium text-accent hover:text-blue-400 transition-colors">
+              className="flex items-center gap-1 text-xs font-medium text-accent hover:text-accent-bright transition-colors">
               <Plus size={14} /> Aggiungi
             </button>
           </div>

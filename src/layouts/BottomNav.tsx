@@ -51,7 +51,7 @@ export default function BottomNav() {
         {/* FAB */}
         <button
           onClick={() => openModal('addExpense')}
-          className="absolute -top-[20px] right-4 w-14 h-14 rounded-full bg-accent hover:bg-blue-600
+          className="absolute -top-[20px] right-4 w-14 h-14 rounded-full bg-accent hover:bg-accent
                      text-white shadow-lg shadow-accent/30 flex items-center justify-center
                      transition-transform active:scale-95"
           aria-label="Aggiungi spesa"

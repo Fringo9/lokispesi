@@ -49,7 +49,7 @@ export default function SearchModal({ transactions, onClose }: Props) {
           </div>
           <button
             onClick={onClose}
-            className="text-sm text-accent font-medium hover:text-blue-400 flex-shrink-0"
+            className="text-sm text-accent font-medium hover:text-accent-bright flex-shrink-0"
           >
             Annulla
           </button>

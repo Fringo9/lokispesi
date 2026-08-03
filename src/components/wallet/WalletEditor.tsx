@@ -37,7 +37,7 @@ export default function WalletEditor({ wallet, onSave, onClose }: Props) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center">
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={onClose} />
       <div className="relative w-full max-w-lg bg-surface rounded-t-3xl border border-border border-b-0 p-5 animate-slide-up">
         <div className="flex items-center justify-between mb-5">
           <h2 className="text-lg font-semibold text-text-primary">
@@ -112,7 +112,7 @@ export default function WalletEditor({ wallet, onSave, onClose }: Props) {
             disabled={!name.trim() || !balance}
             className={`w-full py-3.5 rounded-xl text-sm font-semibold transition-all ${
               name.trim() && balance
-                ? 'bg-accent text-white hover:bg-blue-600 active:scale-[0.98]'
+                ? 'bg-accent text-white hover:bg-accent active:scale-[0.98]'
                 : 'bg-border text-text-secondary cursor-not-allowed'
             }`}
           >

@@ -4,9 +4,9 @@ import type { Category, CategoryFilter } from '@/types'
 
 // Default colors for category color picker
 const PRESET_COLORS = [
-  '#EF4444', '#F97316', '#EAB308', '#22C55E', '#14B8A6',
-  '#3B82F6', '#8B5CF6', '#EC4899', '#F43F5E', '#06B6D4',
-  '#84CC16', '#6366F1', '#78716C',
+  '#D4897A', '#D4A06A', '#8BA888', '#5BA88A', '#6BA8B8',
+  '#5B8CB8', '#9B8AC8', '#C888A0', '#C87888', '#8BA8A0',
+  '#7BA0C8', '#A0A0B0', '#8B8B8B',
 ]
 
 const CATEGORY_TYPES: { value: CategoryFilter; label: string }[] = [
@@ -25,13 +25,13 @@ export default function CategoryManager({ categories, onSave, onDelete }: Props)
   const [editing, setEditing] = useState<Category | null>(null)
   const [showForm, setShowForm] = useState(false)
   const [name, setName] = useState('')
-  const [color, setColor] = useState('#3B82F6')
+  const [color, setColor] = useState('#5B8CB8')
   const [type, setType] = useState<CategoryFilter>('expense')
 
   const handleOpenNew = () => {
     setEditing(null)
     setName('')
-    setColor('#3B82F6')
+    setColor('#5B8CB8')
     setType('expense')
     setShowForm(true)
   }
@@ -54,7 +54,7 @@ export default function CategoryManager({ categories, onSave, onDelete }: Props)
     <div className="space-y-3">
       <div className="flex items-center justify-between">
         <h2 className="text-sm font-semibold text-text-secondary uppercase tracking-wide">Categorie</h2>
-        <button onClick={handleOpenNew} className="flex items-center gap-1 text-xs font-medium text-accent hover:text-blue-400">
+        <button onClick={handleOpenNew} className="flex items-center gap-1 text-xs font-medium text-accent hover:text-accent-bright">
           <Plus size={14} /> Nuova
         </button>
       </div>
@@ -91,7 +91,7 @@ export default function CategoryManager({ categories, onSave, onDelete }: Props)
       {/* Add/Edit Form Modal */}
       {showForm && (
         <div className="fixed inset-0 z-50 flex items-end justify-center">
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowForm(false)} />
+          <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={() => setShowForm(false)} />
           <div className="relative w-full max-w-lg bg-surface rounded-t-3xl border border-border border-b-0 p-5 animate-slide-up">
             <div className="flex items-center justify-between mb-5">
               <h2 className="text-lg font-semibold text-text-primary">
@@ -166,7 +166,7 @@ export default function CategoryManager({ categories, onSave, onDelete }: Props)
                 onClick={handleSubmit}
                 disabled={!name.trim()}
                 className={`w-full py-3.5 rounded-xl text-sm font-semibold transition-all ${
-                  name.trim() ? 'bg-accent text-white hover:bg-blue-600' : 'bg-border text-text-secondary cursor-not-allowed'
+                  name.trim() ? 'bg-accent text-white hover:bg-accent' : 'bg-border text-text-secondary cursor-not-allowed'
                 }`}
               >
                 {editing ? 'Salva modifiche' : 'Crea categoria'}

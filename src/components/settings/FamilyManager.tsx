@@ -57,7 +57,7 @@ export default function FamilyManager({ family, members, onCreate, onInvite, onR
           </p>
           <button
             onClick={() => setShowCreate(true)}
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-white text-sm font-medium rounded-xl hover:bg-blue-600 transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-white text-sm font-medium rounded-xl hover:bg-accent transition-colors"
           >
             <Plus size={16} /> Crea gruppo famiglia
           </button>
@@ -66,7 +66,7 @@ export default function FamilyManager({ family, members, onCreate, onInvite, onR
         {/* Create modal */}
         {showCreate && (
           <div className="fixed inset-0 z-50 flex items-end justify-center">
-            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowCreate(false)} />
+            <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={() => setShowCreate(false)} />
             <div className="relative w-full max-w-lg bg-surface rounded-t-3xl border border-border border-b-0 p-5 animate-slide-up">
               <div className="flex items-center justify-between mb-5">
                 <h2 className="text-lg font-semibold text-text-primary">Nuovo gruppo famiglia</h2>
@@ -81,7 +81,7 @@ export default function FamilyManager({ family, members, onCreate, onInvite, onR
                 </div>
                 <button onClick={handleCreate} disabled={!familyName.trim()}
                   className={`w-full py-3.5 rounded-xl text-sm font-semibold transition-all ${
-                    familyName.trim() ? 'bg-accent text-white hover:bg-blue-600' : 'bg-border text-text-secondary cursor-not-allowed'
+                    familyName.trim() ? 'bg-accent text-white hover:bg-accent' : 'bg-border text-text-secondary cursor-not-allowed'
                   }`}>
                   Crea gruppo
                 </button>
@@ -97,7 +97,7 @@ export default function FamilyManager({ family, members, onCreate, onInvite, onR
     <div className="space-y-3">
       <div className="flex items-center justify-between">
         <h2 className="text-sm font-semibold text-text-secondary uppercase tracking-wide">Famiglia</h2>
-        <button onClick={() => setShowInvite(true)} className="flex items-center gap-1 text-xs font-medium text-accent hover:text-blue-400">
+        <button onClick={() => setShowInvite(true)} className="flex items-center gap-1 text-xs font-medium text-accent hover:text-accent-bright">
           <UserPlus size={14} /> Invita
         </button>
       </div>
@@ -123,7 +123,7 @@ export default function FamilyManager({ family, members, onCreate, onInvite, onR
               </div>
               <span className="text-sm text-text-primary flex-1">Membro</span>
               {m.role === 'admin' ? (
-                <span className="flex items-center gap-1 text-[10px] text-yellow-400 bg-yellow-400/10 px-2 py-0.5 rounded-full">
+                <span className="flex items-center gap-1 text-[10px] text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full">
                   <Crown size={10} /> Admin
                 </span>
               ) : (
@@ -155,7 +155,7 @@ export default function FamilyManager({ family, members, onCreate, onInvite, onR
       {/* Invite modal */}
       {showInvite && (
         <div className="fixed inset-0 z-50 flex items-end justify-center">
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowInvite(false)} />
+          <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={() => setShowInvite(false)} />
           <div className="relative w-full max-w-lg bg-surface rounded-t-3xl border border-border border-b-0 p-5 animate-slide-up">
             <div className="flex items-center justify-between mb-5">
               <h2 className="text-lg font-semibold text-text-primary">Invita membro</h2>
@@ -173,7 +173,7 @@ export default function FamilyManager({ family, members, onCreate, onInvite, onR
               </div>
               <button onClick={handleInvite} disabled={!inviteEmail.trim()}
                 className={`w-full py-3.5 rounded-xl text-sm font-semibold transition-all ${
-                  inviteEmail.trim() ? 'bg-accent text-white hover:bg-blue-600' : 'bg-border text-text-secondary cursor-not-allowed'
+                  inviteEmail.trim() ? 'bg-accent text-white hover:bg-accent' : 'bg-border text-text-secondary cursor-not-allowed'
                 }`}>
                 Invia invito
               </button>

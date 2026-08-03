@@ -3,22 +3,26 @@
 @theme {
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
-  --color-primary: #0F172A;
-  --color-surface: #1E293B;
-  --color-accent: #3B82F6;
-  --color-income: #22C55E;
-  --color-expense: #EF4444;
-  --color-text-primary: #F8FAFC;
-  --color-text-secondary: #94A3B8;
-  --color-text-tertiary: #64748B;
-  --color-border: #334155;
+
+  /* Serenity Light palette */
+  --color-primary: #F8F9FA;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #F3F4F6;
+  --color-accent: #5B8CB8;
+  --color-accent-bright: #7AADDC;
+  --color-accent-bg: #EEF4F8;
+  --color-income: #5BA88A;
+  --color-expense: #D4897A;
+  --color-text-primary: #1A1D23;
+  --color-text-secondary: #6B7280;
+  --color-text-tertiary: #9CA3AF;
+  --color-border: #E5E7EB;
 }
 
 /* ============================================================
    iOS Native App Feel — Safe Area & Viewport
    ============================================================ */
 
-/* Lock viewport to prevent iOS rubber-banding and toolbar resizing */
 html {
   position: fixed;
   overflow: hidden;
@@ -50,23 +54,11 @@ body {
 }
 
 /* Safe area padding utilities */
-.pt-safe {
-  padding-top: env(safe-area-inset-top, 0px);
-}
+.pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+.pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+.pl-safe { padding-left: env(safe-area-inset-left, 0px); }
+.pr-safe { padding-right: env(safe-area-inset-right, 0px); }
 
-.pb-safe {
-  padding-bottom: env(safe-area-inset-bottom, 0px);
-}
-
-.pl-safe {
-  padding-left: env(safe-area-inset-left, 0px);
-}
-
-.pr-safe {
-  padding-right: env(safe-area-inset-right, 0px);
-}
-
-/* Use safe areas directly in the layout shell */
 .app-shell {
   height: 100%;
   display: flex;
@@ -74,57 +66,33 @@ body {
   overflow: hidden;
 }
 
-/* Content area that scrolls — accounts for bottom nav */
 .app-content {
   flex: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  /* Space for the bottom nav (h-16 = 64px) + safe area */
   padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
 }
 
-/* Base interactions */
 * {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
 
-/* Hide scrollbar but keep functionality */
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-}
+.hide-scrollbar::-webkit-scrollbar { display: none; }
 
 /* ============================================================
    Animations
    ============================================================ */
 
-.pull-indicator {
-  animation: pull-spin 0.6s linear infinite;
-}
+.pull-indicator { animation: pull-spin 0.6s linear infinite; }
+@keyframes pull-spin { to { transform: rotate(360deg); } }
 
-@keyframes pull-spin {
-  to { transform: rotate(360deg); }
-}
-
-/* Modal slide-up — shared by all sheet modals */
 @keyframes slide-up {
   from { transform: translateY(100%); }
   to { transform: translateY(0); }
 }
-
-.animate-slide-up {
-  animation: slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* ============================================================
-   iOS standalone mode optimizations
-   ============================================================ */
-
-/* When launched from home screen (standalone PWA) */
-@media (display-mode: standalone) {
-  /* Already handled by safe-area-inset-* */
-}
+.animate-slide-up { animation: slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1); }

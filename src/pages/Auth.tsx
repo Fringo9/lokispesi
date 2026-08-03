@@ -190,7 +190,7 @@ export default function Auth() {
             className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl text-sm font-semibold transition-all ${
               loading || !email || !password
                 ? 'bg-border text-text-secondary cursor-not-allowed'
-                : 'bg-accent text-white hover:bg-blue-600 active:scale-[0.98] shadow-lg shadow-accent/25'
+                : 'bg-accent text-white hover:bg-accent active:scale-[0.98] shadow-lg shadow-accent/25'
             }`}
           >
             {loading ? (
@@ -232,19 +232,19 @@ export default function Auth() {
 
 async function seedDefaultCategories(userId: string) {
   const categories = [
-    { name: 'Stipendio', icon: 'briefcase', color: '#22C55E', type: 'income' },
-    { name: 'Freelance', icon: 'laptop', color: '#16A34A', type: 'income' },
-    { name: 'Altro (entrate)', icon: 'ellipsis', color: '#6B7280', type: 'income' },
-    { name: 'Affitto/Mutuo', icon: 'home', color: '#EF4444', type: 'expense' },
-    { name: 'Bollette', icon: 'zap', color: '#F97316', type: 'expense' },
-    { name: 'Spesa alimentare', icon: 'shopping-cart', color: '#EAB308', type: 'expense' },
-    { name: 'Trasporti', icon: 'car', color: '#3B82F6', type: 'expense' },
-    { name: 'Ristoranti', icon: 'utensils-crossed', color: '#EC4899', type: 'expense' },
-    { name: 'Salute', icon: 'heart-pulse', color: '#14B8A6', type: 'expense' },
-    { name: 'Intrattenimento', icon: 'tv', color: '#8B5CF6', type: 'expense' },
-    { name: 'Abbigliamento', icon: 'shirt', color: '#F43F5E', type: 'expense' },
-    { name: 'Investimenti', icon: 'trending-up', color: '#06B6D4', type: 'both' },
-    { name: 'Altro', icon: 'ellipsis', color: '#6B7280', type: 'both' },
+    { name: 'Stipendio', icon: 'briefcase', color: '#5BA88A', type: 'income' },
+    { name: 'Freelance', icon: 'laptop', color: '#4A9B7E', type: 'income' },
+    { name: 'Altro (entrate)', icon: 'ellipsis', color: '#8B8B8B', type: 'income' },
+    { name: 'Affitto/Mutuo', icon: 'home', color: '#D4897A', type: 'expense' },
+    { name: 'Bollette', icon: 'zap', color: '#D4A06A', type: 'expense' },
+    { name: 'Spesa alimentare', icon: 'shopping-cart', color: '#8BA888', type: 'expense' },
+    { name: 'Trasporti', icon: 'car', color: '#7BA0C8', type: 'expense' },
+    { name: 'Ristoranti', icon: 'utensils-crossed', color: '#C888A0', type: 'expense' },
+    { name: 'Salute', icon: 'heart-pulse', color: '#6BA8B8', type: 'expense' },
+    { name: 'Intrattenimento', icon: 'tv', color: '#9B8AC8', type: 'expense' },
+    { name: 'Abbigliamento', icon: 'shirt', color: '#C87888', type: 'expense' },
+    { name: 'Investimenti', icon: 'trending-up', color: '#8BA8A0', type: 'both' },
+    { name: 'Altro', icon: 'ellipsis', color: '#8B8B8B', type: 'both' },
   ]
 
   const { error } = await supabase.from('categories').insert(

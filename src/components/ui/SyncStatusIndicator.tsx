@@ -60,7 +60,7 @@ export default function SyncStatusIndicator() {
         ? 'bg-income/10 border-income/30'
         : phase === 'error'
           ? 'bg-expense/10 border-expense/30'
-          : 'bg-yellow-500/10 border-yellow-500/30'
+          : 'bg-amber-50 border-amber-300'
 
   const textColor =
     phase === 'syncing'
@@ -69,7 +69,7 @@ export default function SyncStatusIndicator() {
         ? 'text-income'
         : phase === 'error'
           ? 'text-expense'
-          : 'text-yellow-400'
+          : 'text-amber-600'
 
   return (
     <div className={`px-3 py-1.5 border-b ${bgColor} transition-colors duration-300`}>

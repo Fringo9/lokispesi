@@ -90,7 +90,7 @@ export default function Accounts() {
         {/* Connect button */}
         <button
           onClick={() => setShowConnect(true)}
-          className="w-full flex items-center justify-center gap-2 bg-accent hover:bg-blue-600
+          className="w-full flex items-center justify-center gap-2 bg-accent hover:bg-accent
                          text-white font-medium py-3.5 rounded-xl transition-colors text-sm
                          shadow-lg shadow-accent/25 active:scale-[0.98]"
         >

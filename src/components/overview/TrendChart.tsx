@@ -22,23 +22,23 @@ export default function TrendChart({ data }: Props) {
       </h2>
       <ResponsiveContainer width="100%" height={220}>
         <BarChart data={data} barGap={2}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#334155" vertical={false} />
+          <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" vertical={false} />
           <XAxis
             dataKey="name"
             axisLine={false}
             tickLine={false}
-            tick={{ fill: '#94A3B8', fontSize: 11 }}
+            tick={{ fill: '#6B7280', fontSize: 11 }}
           />
           <YAxis
             axisLine={false}
             tickLine={false}
-            tick={{ fill: '#94A3B8', fontSize: 11 }}
+            tick={{ fill: '#6B7280', fontSize: 11 }}
             tickFormatter={(v: number) => `€${v / 1000}k`}
           />
           <Tooltip
             contentStyle={{
-              backgroundColor: '#1E293B',
-              border: '1px solid #334155',
+              backgroundColor: '#FFFFFF',
+              border: '1px solid #E5E7EB',
               borderRadius: '12px',
               fontSize: '13px',
             }}
@@ -49,10 +49,10 @@ export default function TrendChart({ data }: Props) {
           />
           <Legend
             formatter={(value: string) => value === 'income' ? 'Entrate' : 'Uscite'}
-            wrapperStyle={{ fontSize: '12px', color: '#94A3B8' }}
+            wrapperStyle={{ fontSize: '12px', color: '#6B7280' }}
           />
-          <Bar dataKey="income" fill="#22C55E" radius={[4, 4, 0, 0]} name="income" />
-          <Bar dataKey="expense" fill="#EF4444" radius={[4, 4, 0, 0]} name="expense" />
+          <Bar dataKey="income" fill="#5BA88A" radius={[4, 4, 0, 0]} name="income" />
+          <Bar dataKey="expense" fill="#D4897A" radius={[4, 4, 0, 0]} name="expense" />
         </BarChart>
       </ResponsiveContainer>
     </div>
