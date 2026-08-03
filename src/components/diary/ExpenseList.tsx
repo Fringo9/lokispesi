@@ -5,6 +5,7 @@ import type { Transaction } from '@/types'
 
 interface Props {
   transactions: Transaction[]
+  onDelete?: (id: string) => void
 }
 
 function groupByDay(txs: Transaction[]): Map<string, Transaction[]> {
