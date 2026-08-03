@@ -42,6 +42,8 @@ export default function Settings() {
   const [family, setFamily] = useState<FamilyGroup | null>(null)
   const [members, setMembers] = useState<FamilyMember[]>([])
 
+  const [showLogoutConfirm, setShowLogoutConfirm] = useState(false)
+
   const handleLogout = async () => {
     await signOut()
     navigate('/auth', { replace: true })
@@ -90,48 +92,28 @@ export default function Settings() {
   const goBack = () => setSection('menu')
 
   const renderSection = () => {
-    switch (section) {
-      case 'categories':
-        return (
-          <div>
-            <button onClick={goBack} className="text-sm text-accent mb-4 flex items-center gap-1">
-              ← Indietro
-            </button>
-            <CategoryManager categories={categories} onSave={handleSaveCategory} onDelete={handleDeleteCategory} />
-          </div>
-        )
-      case 'scheduled':
-        return (
-          <div>
-            <button onClick={goBack} className="text-sm text-accent mb-4 flex items-center gap-1">
-              ← Indietro
-            </button>
-            <ScheduledManager
-              scheduled={scheduled}
-              onSave={handleSaveScheduled}
-              onToggle={handleToggleScheduled}
-              onDelete={handleDeleteScheduled}
-            />
-          </div>
-        )
-      case 'family':
-        return (
-          <div>
-            <button onClick={goBack} className="text-sm text-accent mb-4 flex items-center gap-1">
-              ← Indietro
-            </button>
-            <FamilyManager
-              family={family}
-              members={members}
-              onCreate={handleCreateFamily}
-              onInvite={handleInviteMember}
-              onRemoveMember={(id) => setMembers(prev => prev.filter(m => m.profile_id !== id))}
-            />
-          </div>
-        )
-      default:
-        return null
-    }
+    const content = (() => {
+      switch (section) {
+        case 'categories':
+          return <CategoryManager categories={categories} onSave={handleSaveCategory} onDelete={handleDeleteCategory} />
+        case 'scheduled':
+          return <ScheduledManager scheduled={scheduled} onSave={handleSaveScheduled} onToggle={handleToggleScheduled} onDelete={handleDeleteScheduled} />
+        case 'family':
+          return <FamilyManager family={family} members={members} onCreate={handleCreateFamily} onInvite={handleInviteMember} onRemoveMember={(id) => setMembers(prev => prev.filter(m => m.profile_id !== id))} />
+        default:
+          return null
+      }
+    })()
+
+    return (
+      <div className="animate-slide-in">
+        <button onClick={goBack} className="flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-bright mb-4 transition-colors">
+          <svg width="6" height="10" viewBox="0 0 6 10" fill="none"><path d="M5 1L1 5L5 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          Indietro
+        </button>
+        {content}
+      </div>
+    )
   }
 
   return (
@@ -182,15 +164,40 @@ export default function Settings() {
             {/* Logout */}
             <div className="pt-6">
               <button
-                onClick={handleLogout}
+                onClick={() => setShowLogoutConfirm(true)}
                 className="w-full flex items-center justify-center gap-2 py-3 text-sm font-medium text-expense hover:bg-expense/5 rounded-xl transition-colors"
               >
                 <LogOut size={16} /> Esci
               </button>
               <p className="text-[10px] text-text-tertiary text-center mt-4">
-                LokiSpesi v0.2.0 — PWA
+                LokiSpesi v0.3.0 — PWA
               </p>
             </div>
+
+            {/* Logout confirmation modal */}
+            {showLogoutConfirm && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center">
+                <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={() => setShowLogoutConfirm(false)} />
+                <div className="relative w-[85%] max-w-sm bg-surface rounded-2xl border border-border p-6 shadow-xl animate-scale-in">
+                  <h3 className="text-base font-semibold text-text-primary mb-2">Uscire dall'account?</h3>
+                  <p className="text-sm text-text-secondary mb-5">Dovrai rifare l'accesso per usare l'app.</p>
+                  <div className="flex gap-3">
+                    <button
+                      onClick={() => setShowLogoutConfirm(false)}
+                      className="flex-1 py-2.5 rounded-xl text-sm font-medium bg-accent-bg text-accent hover:bg-accent/10 transition-colors"
+                    >
+                      Annulla
+                    </button>
+                    <button
+                      onClick={handleLogout}
+                      className="flex-1 py-2.5 rounded-xl text-sm font-medium bg-expense text-white hover:bg-expense/90 transition-colors"
+                    >
+                      Esci
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         ) : (
           renderSection()
