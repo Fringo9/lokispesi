@@ -18,7 +18,7 @@ function groupByDay(txs: Transaction[]): Map<string, Transaction[]> {
   return groups
 }
 
-export default function ExpenseList({ transactions }: Props) {
+export default function ExpenseList({ transactions, onDelete }: Props) {
   const dayGroups = useMemo(() => {
     const groups = groupByDay(transactions)
     // Sort days descending
