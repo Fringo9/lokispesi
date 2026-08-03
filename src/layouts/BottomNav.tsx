@@ -25,7 +25,10 @@ export default function BottomNav() {
   const isActive = (path: string) => location.pathname.startsWith(path)
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-surface border-t border-border pb-safe">
+    <nav
+      className="fixed bottom-0 left-0 right-0 z-50 bg-surface/95 backdrop-blur-xl border-t border-border"
+      style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
+    >
       <div className="flex items-center justify-around h-16 max-w-lg mx-auto relative">
         {tabs.map((tab) => {
           const active = isActive(tab.path)
@@ -45,10 +48,10 @@ export default function BottomNav() {
           )
         })}
 
-        {/* FAB - centered between tabs 0 and 1 (Diario position) */}
+        {/* FAB */}
         <button
           onClick={() => openModal('addExpense')}
-          className="absolute bottom-4 right-4 w-14 h-14 rounded-full bg-accent hover:bg-blue-600
+          className="absolute -top-[20px] right-4 w-14 h-14 rounded-full bg-accent hover:bg-blue-600
                      text-white shadow-lg shadow-accent/30 flex items-center justify-center
                      transition-transform active:scale-95"
           aria-label="Aggiungi spesa"

@@ -67,7 +67,14 @@ export default function Auth() {
   }
 
   return (
-    <div className="min-h-dvh flex items-center justify-center bg-primary p-6">
+    <div
+      className="flex items-center justify-center bg-primary p-6"
+      style={{
+        height: '100%',
+        paddingTop: 'calc(env(safe-area-inset-top, 0px) + 1.5rem)',
+        paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 1.5rem)',
+      }}
+    >
       <div className="w-full max-w-sm">
         {/* Logo */}
         <div className="text-center mb-8">

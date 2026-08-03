@@ -12,11 +12,9 @@ export default function AppLayout() {
   const { activeModal, closeModal } = useUIStore()
   const { setPendingCount } = useOfflineStore()
 
-  // Initialize sync engine on mount
   useEffect(() => {
     syncManager.start()
 
-    // Periodically check pending count
     const updatePendingCount = async () => {
       const pending = await localDB.getPendingSync()
       setPendingCount(pending.length)
@@ -28,16 +26,29 @@ export default function AppLayout() {
   }, [])
 
   return (
-    <div className="flex flex-col h-dvh bg-primary">
+    <div
+      className="flex flex-col bg-primary app-shell"
+      style={{
+        paddingTop: 'env(safe-area-inset-top, 0px)',
+        paddingLeft: 'env(safe-area-inset-left, 0px)',
+        paddingRight: 'env(safe-area-inset-right, 0px)',
+      }}
+    >
       {/* Sync status bar */}
       <SyncStatusIndicator />
 
-      {/* Content area */}
-      <main className="flex-1 overflow-y-auto pb-20">
+      {/* Scrollable content — space for bottom nav (64px) + safe area */}
+      <main
+        className="flex-1 overflow-y-auto"
+        style={{
+          paddingBottom: 'calc(64px + env(safe-area-inset-bottom, 0px))',
+          WebkitOverflowScrolling: 'touch',
+        }}
+      >
         <Outlet />
       </main>
 
-      {/* Bottom Navigation */}
+      {/* Bottom Navigation — fixed to viewport bottom, safe-area-aware */}
       <BottomNav />
 
       {/* Modals */}
